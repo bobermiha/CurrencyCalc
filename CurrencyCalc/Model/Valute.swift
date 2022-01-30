@@ -26,6 +26,7 @@ struct Valute: Codable, Equatable {
         default: return value / 1
         }
     }
+     
     var flagIcon: String {
         switch charCode {
         case "AUD": return "🇦🇺"
@@ -79,39 +80,32 @@ struct Valute: Codable, Equatable {
         case id = "ID"
     }
     
-//    init?(json: [String: Any]) {
-//        
-//        let charCode = json[CodingKeys.charCode.rawValue] as? String
-//        let nominal = json[CodingKeys.nominal.rawValue] as? Int
-//        let name = json[CodingKeys.name.rawValue] as? String
-//        let value = json[CodingKeys.value.rawValue] as? Double
-//        let id = json[CodingKeys.id.rawValue] as? String
-//        
-//        self.id = id
-//        self.nominal = nominal
-//        self.charCode = charCode
-//        self.name = name
-//        self.value = value
-//    }
-//    
-//    init?(charCode: String, nominal: Int, name: String, value: Double, id: String){
-//        self.charCode = charCode
-//        self.nominal = nominal
-//        self.name = name
-//        self.value = value
-//        self.id = id
-//    }
-//    
-//    static func getDictionary(from jsonDict: Any) -> [Valute]? {
-//        var valutes = [Valute]()
-//        guard let jsonDict = jsonDict as? Dictionary<String, Dictionary<String, Any>> else {return nil}
-//        let valuteJson = jsonDict.values
-//        for value in valuteJson {
-//            if let valute = Valute(json: value) {
-//                valutes.append(valute)
-//            }
-//        }
-//        return valutes
-//    }
+    init?(json: [String: Any]) {
+        
+        let charCode = json[CodingKeys.charCode.rawValue] as? String
+        let nominal = json[CodingKeys.nominal.rawValue] as? Int
+        let name = json[CodingKeys.name.rawValue] as? String
+        let value = json[CodingKeys.value.rawValue] as? Double
+        let id = json[CodingKeys.id.rawValue] as? String
+        
+        self.id = id
+        self.nominal = nominal
+        self.charCode = charCode
+        self.name = name
+        self.value = value
+    }
+    
+    
+    static func getDictionary(from jsonDict: Any) -> [Valute]? {
+        var valutes = [Valute]()
+        guard let jsonDict = jsonDict as? Dictionary<String, Dictionary<String, Any>> else {return nil}
+        let valuteJson = jsonDict.values
+        for value in valuteJson {
+            if let valute = Valute(json: value) {
+                valutes.append(valute)
+            }
+        }
+        return valutes
+    }
     
 }
