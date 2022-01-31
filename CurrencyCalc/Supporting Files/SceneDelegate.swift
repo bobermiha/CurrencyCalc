@@ -18,8 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBar = UITabBarController()
         let converterViewController = ConverterViewController()
         let coursesViewController = CoursesTableViewController()
-        converterViewController.tabBarItem = UITabBarItem(title: "Converter", image: UIImage(systemName: "dollarsign.circle.fill"), tag: 0)
-        coursesViewController.tabBarItem = UITabBarItem(title: "Courses", image: UIImage(systemName: "list.bullet"), tag: 1)
+        converterViewController.tabBarItem = UITabBarItem(title: "Конвертер", image: UIImage(systemName: "dollarsign.circle.fill"), tag: 0)
+        coursesViewController.tabBarItem = UITabBarItem(title: "Курсы валют", image: UIImage(systemName: "list.bullet"), tag: 1)
         tabBar.setViewControllers([converterViewController, coursesViewController], animated: false)
         window.rootViewController = tabBar
         window.makeKeyAndVisible()
@@ -44,14 +44,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
     }
 
 
