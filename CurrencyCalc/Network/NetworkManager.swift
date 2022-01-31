@@ -31,10 +31,10 @@ class NetworkValuteManager {
             let decoder = JSONDecoder()
             
             do{
-                let valuteData = try decoder.decode(ValuteData.self, from: data)
-                let valute = valuteData.valute.values
-                for v in valute {
-                    if let valute = Valute(charCode: v.charCode, nominal: v.nominal, name: v.name, value: v.value) {
+                let jsonData = try decoder.decode(ValuteData.self, from: data)
+                if let jsonItems = jsonData.valute {
+                    for item in jsonItems {
+                        let valute = item.value
                         valutes.append(valute)
                     }
                 }
