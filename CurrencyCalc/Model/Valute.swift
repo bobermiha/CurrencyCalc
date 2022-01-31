@@ -13,7 +13,6 @@ struct Valute: Codable, Equatable {
     let name: String?
     let value: Double?
     let id: String?
-    
     var realValue: Double {
         guard let value = value else { return 1.0}
         switch nominal {
@@ -79,33 +78,4 @@ struct Valute: Codable, Equatable {
         case value = "Value"
         case id = "ID"
     }
-    
-//    init?(json: [String: Any]) {
-//
-//        let charCode = json[CodingKeys.charCode.rawValue] as? String
-//        let nominal = json[CodingKeys.nominal.rawValue] as? Int
-//        let name = json[CodingKeys.name.rawValue] as? String
-//        let value = json[CodingKeys.value.rawValue] as? Double
-//        let id = json[CodingKeys.id.rawValue] as? String
-//
-//        self.id = id
-//        self.nominal = nominal
-//        self.charCode = charCode
-//        self.name = name
-//        self.value = value
-//    }
-    
-    
-//    static func getDictionary(from jsonDict: Any) -> [Valute]? {
-//        var valutes = [Valute]()
-//        guard let jsonDict = jsonDict as? Dictionary<String, Dictionary<String, Any>> else {return nil}
-//        let valuteJson = jsonDict.values
-//        for value in valuteJson {
-//            if let valute = Valute(json: value) {
-//                valutes.append(valute)
-//            }
-//        }
-//        return valutes
-//    }
-    
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkValuteManager {
+class NetworkManager {
     
     static func fetchValute(completion: @escaping (_ valutesJSON: [Valute]) -> Void) {
         let urlString = "https://www.cbr-xml-daily.ru/daily_json.js"
@@ -26,7 +26,7 @@ class NetworkValuteManager {
             task.resume()
         }
         
-        static func parseJSON(withData data: Data) -> [Valute]? {
+    static func parseJSON(withData data: Data) -> [Valute]? {
             var valutes = [Valute]()
             let decoder = JSONDecoder()
             

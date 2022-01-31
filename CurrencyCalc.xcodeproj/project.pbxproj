@@ -19,6 +19,7 @@
 		F51B999C27A5C4BB0008F18A /* ValuteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999B27A5C4BB0008F18A /* ValuteData.swift */; };
 		F51B999E27A5C4E70008F18A /* Valute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999D27A5C4E70008F18A /* Valute.swift */; };
 		F51B99A027A5C5320008F18A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999F27A5C5320008F18A /* NetworkManager.swift */; };
+		F58892C327A841F9009A71E1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58892C227A841F9009A71E1 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F51B999B27A5C4BB0008F18A /* ValuteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteData.swift; sourceTree = "<group>"; };
 		F51B999D27A5C4E70008F18A /* Valute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valute.swift; sourceTree = "<group>"; };
 		F51B999F27A5C5320008F18A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F58892C227A841F9009A71E1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				F51B999B27A5C4BB0008F18A /* ValuteData.swift */,
 				F51B999D27A5C4E70008F18A /* Valute.swift */,
+				F58892C227A841F9009A71E1 /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51B99A027A5C5320008F18A /* NetworkManager.swift in Sources */,
+				F58892C327A841F9009A71E1 /* DataManager.swift in Sources */,
 				F51B999E27A5C4E70008F18A /* Valute.swift in Sources */,
 				F51B999627A5B03C0008F18A /* ValutesTableViewController.swift in Sources */,
 				F51B999827A5B0480008F18A /* CoursesTableViewController.swift in Sources */,
