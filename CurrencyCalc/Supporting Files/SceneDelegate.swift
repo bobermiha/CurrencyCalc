@@ -15,13 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let tabBar = UITabBarController()
-        let converterViewController = ConverterViewController()
-        let coursesViewController = CoursesTableViewController()
-        converterViewController.tabBarItem = UITabBarItem(title: "Конвертер", image: UIImage(systemName: "dollarsign.circle.fill"), tag: 0)
-        coursesViewController.tabBarItem = UITabBarItem(title: "Курсы валют", image: UIImage(systemName: "list.bullet"), tag: 1)
-        tabBar.setViewControllers([converterViewController, coursesViewController], animated: false)
-        window.rootViewController = tabBar
+        window.rootViewController = MainTabBarController()
         window.makeKeyAndVisible()
         self.window = window
     }

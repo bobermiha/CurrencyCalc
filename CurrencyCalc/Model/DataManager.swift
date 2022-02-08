@@ -32,5 +32,6 @@ class DataManager {
         return currentCourse
     }
     
+    //Продумать функцию по проверки нового значения и старого
     
 }
