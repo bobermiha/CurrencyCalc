@@ -47,6 +47,16 @@ class ConverterViewController: UIViewController {
         return imageView
     }()
     
+    private var firstValuteLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    private var secondValuteLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
     
     
     override func viewDidLoad() {
