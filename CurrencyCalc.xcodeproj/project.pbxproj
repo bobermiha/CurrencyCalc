@@ -19,6 +19,7 @@
 		F51B999C27A5C4BB0008F18A /* ValuteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999B27A5C4BB0008F18A /* ValuteData.swift */; };
 		F51B999E27A5C4E70008F18A /* Valute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999D27A5C4E70008F18A /* Valute.swift */; };
 		F51B99A027A5C5320008F18A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999F27A5C5320008F18A /* NetworkManager.swift */; };
+		F56B5B1527B289A200ACD674 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B5B1427B289A200ACD674 /* AppConstant.swift */; };
 		F58892C327A841F9009A71E1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58892C227A841F9009A71E1 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		F51B999B27A5C4BB0008F18A /* ValuteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteData.swift; sourceTree = "<group>"; };
 		F51B999D27A5C4E70008F18A /* Valute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valute.swift; sourceTree = "<group>"; };
 		F51B999F27A5C5320008F18A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F56B5B1427B289A200ACD674 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		F58892C227A841F9009A71E1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 		F51B997627A5ADDD0008F18A /* CurrencyCalc */ = {
 			isa = PBXGroup;
 			children = (
+				F56B5B1327B2898F00ACD674 /* Helpers */,
 				F51B999227A5AF320008F18A /* Network */,
 				F51B999127A5AF290008F18A /* Model */,
 				F51B999427A5AF5F0008F18A /* View */,
@@ -138,6 +141,14 @@
 				F51B999927A5BB610008F18A /* CourseTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F56B5B1327B2898F00ACD674 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F56B5B1427B289A200ACD674 /* AppConstant.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F94758E0CA962EA6AF056C3B /* Pods */ = {
@@ -272,6 +283,7 @@
 				F51B999A27A5BB610008F18A /* CourseTableViewCell.swift in Sources */,
 				F51B997827A5ADDD0008F18A /* AppDelegate.swift in Sources */,
 				F51B997A27A5ADDD0008F18A /* SceneDelegate.swift in Sources */,
+				F56B5B1527B289A200ACD674 /* AppConstant.swift in Sources */,
 				F51B998C27A5AEEE0008F18A /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

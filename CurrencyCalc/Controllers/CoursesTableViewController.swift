@@ -14,7 +14,6 @@ class CoursesTableViewController: UITableViewController {
     private var valutes: [Valute] = []
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()

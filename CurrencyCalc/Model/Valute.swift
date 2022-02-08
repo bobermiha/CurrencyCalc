@@ -12,7 +12,9 @@ struct Valute: Codable, Equatable {
     let nominal: Int?
     let name: String?
     let value: Double?
+    let previous: Double?
     let id: String?
+    
     var realValue: Double {
         guard let value = value else { return 1.0}
         switch nominal {
@@ -77,5 +79,6 @@ struct Valute: Codable, Equatable {
         case name = "Name"
         case value = "Value"
         case id = "ID"
+        case previous = "Previous"
     }
 }

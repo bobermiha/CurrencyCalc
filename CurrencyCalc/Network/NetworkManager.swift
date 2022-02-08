@@ -10,7 +10,7 @@ import Foundation
 class NetworkManager {
     
     static func fetchValute(completion: @escaping (_ valutesJSON: [Valute]) -> Void) {
-        let urlString = "https://www.cbr-xml-daily.ru/daily_json.js"
+        let urlString = AppConstant.url.rawValue
             guard let url = URL(string: urlString) else {return}
             let session = URLSession.shared
             let task = session.dataTask(with: url) { data, response, error in
