@@ -11,10 +11,8 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let converterVC = ConverterViewController()
         let coursesVC = CoursesTableViewController()
-        
         viewControllers = [
             setUpNavigationController(title: "Конвертер",
                                       image: UIImage(systemName: "dollarsign.circle.fill"),
@@ -23,8 +21,6 @@ class MainTabBarController: UITabBarController {
                                       image: UIImage(systemName: "list.bullet"),
                                       rootViewController: coursesVC)
         ]
-        
-        
     }
     
     private func setUpNavigationController(title: String, image: UIImage?, rootViewController: UIViewController) -> UIViewController {
