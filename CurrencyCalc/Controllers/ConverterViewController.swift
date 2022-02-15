@@ -126,6 +126,7 @@ class ConverterViewController: UIViewController {
     
     private func configurateTextField(config textField: UITextField) -> UITextField {
         textField.borderStyle = .none
+        textField.delegate = self
         textField.layer.cornerRadius = 7.5
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.mainColor.cgColor
@@ -227,6 +228,7 @@ class ConverterViewController: UIViewController {
     
     @objc private func swichButtonTapped() {
         swap(&firstValute, &secondValute)
+        swap(&firstValuteTF.text, &secondValuteTF.text)
         updateUI()
     }
     
@@ -248,6 +250,8 @@ class ConverterViewController: UIViewController {
     
 }
 
+// MARK: - The delegate method witch catch data and make data flow
+
 extension ConverterViewController: SelectValuteTypeDelegate {
     func selectValuteType(didSelect valuteType: Valute) {
         if condition == .fristValute {
@@ -257,4 +261,23 @@ extension ConverterViewController: SelectValuteTypeDelegate {
         }
         updateUI()
     }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension ConverterViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text,
+                let firstValute = firstValute,
+                let secondValute = secondValute else { return }
+        
+        if firstValuteTF == textField {
+            secondValuteTF.text = String(format: "%.2f", DataManager.shared.calculateValueFromFirstToSecond(text: text, from: firstValute, to: secondValute))
+        }
+        if secondValuteTF == textField {
+            firstValuteTF.text = String(format: "%.2f", DataManager.shared.calculateValueFromSecondToFirst(text: text, from: secondValute, to: firstValute))
+        }
+    }
+    
 }

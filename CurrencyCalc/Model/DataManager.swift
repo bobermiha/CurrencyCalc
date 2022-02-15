@@ -19,7 +19,7 @@ class DataManager {
     func calculateValueFromFirstToSecond(text: String, from firstValute: Valute, to secondValute: Valute) -> Double {
         var currentCourse: Double = 0
         if let value = Double(text) {
-            currentCourse = value * (firstValute.realValue / secondValute.realValue)
+            currentCourse = value * (firstValute.actualValue / secondValute.actualValue)
         }
         return currentCourse
     }
@@ -27,7 +27,7 @@ class DataManager {
     func calculateValueFromSecondToFirst(text: String, from secondValute: Valute, to firstValute: Valute) -> Double {
         var currentCourse: Double = 0
         if let value = Double(text) {
-            currentCourse = value * (secondValute.realValue / firstValute.realValue)
+            currentCourse = value * (secondValute.actualValue / firstValute.actualValue)
         }
         return currentCourse
     }
