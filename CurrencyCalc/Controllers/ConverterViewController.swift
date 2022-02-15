@@ -58,12 +58,11 @@ class ConverterViewController: UIViewController {
     
     private lazy var switchValutes: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "exchange-2"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFill
-        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.setTitle("⇄", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 35)
         button.tintColor = .white
         button.layer.cornerRadius = 15
-        button.backgroundColor = UIColor.mainColor
+        button.backgroundColor = mainColor
         button.addTarget(self, action: #selector(swichButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -127,17 +126,18 @@ class ConverterViewController: UIViewController {
     private func configurateTextField(config textField: UITextField) -> UITextField {
         textField.borderStyle = .none
         textField.delegate = self
+        textField.keyboardType = .decimalPad
         textField.layer.cornerRadius = 7.5
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.mainColor.cgColor
+        textField.layer.borderColor = mainColor.cgColor
         textField.placeholder = "Введите значение"
         textField.font = UIFont(name: "Apple SD Ghotic Neo", size: 15)
-        textField.textAlignment = .right
+        textField.textAlignment = .center
         return textField
     }
     
     private func configurateChooseButtons(config button: UIButton) -> UIButton {
-        button.backgroundColor = UIColor.mainColor
+        button.backgroundColor = mainColor
         button.tintColor = .white
         button.setTitle("Выберите валюту", for: .normal)
         button.layer.cornerRadius = 15
@@ -149,7 +149,7 @@ class ConverterViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.borderWidth = 1.5
         imageView.tintColor = .black
-        imageView.layer.borderColor = UIColor.mainColor.cgColor
+        imageView.layer.borderColor = mainColor.cgColor
         imageView.clipsToBounds = true
         return imageView
     }
@@ -200,7 +200,7 @@ class ConverterViewController: UIViewController {
             make.top.equalTo(flagImageView)
             make.left.equalTo(flagImageView.snp.right).inset(-25)
             make.height.equalTo(frameSize)
-            make.width.equalTo(75)
+            make.width.equalTo(80)
         }
     }
     
