@@ -116,9 +116,11 @@ class ConverterViewController: UIViewController {
     private func updateUI() {
         if let firstValute = firstValute {
             firstValuteLabel.text = firstValute.charCode
+            firstValuteFlagImage.image = UIImage(named: firstValute.charCode!)
         }
         if let secondValute = secondValute {
             secondValuteLabel.text = secondValute.charCode
+            secondValuteFlagImage.image = UIImage(named: secondValute.charCode!)
         }
     }
     

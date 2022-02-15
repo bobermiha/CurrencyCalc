@@ -28,6 +28,8 @@ struct Valute: Codable, Equatable {
         }
     }
     
+    
+    
     var flagIcon: String {
         switch charCode {
         case "AUD": return "🇦🇺"
