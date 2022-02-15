@@ -32,7 +32,7 @@ class CoursesTableViewController: UITableViewController {
     }
     
     private func fetchValute() { // network method
-        NetworkManager.fetchValute { (data) in
+        NetworkManager.shared.fetchValute { (data) in
             var valutes = [Valute]()
             for item in data {
                 valutes.append(item)

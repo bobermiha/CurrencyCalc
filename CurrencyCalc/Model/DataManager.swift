@@ -8,9 +8,9 @@
 import Foundation
 class DataManager {
     
-    static let shared = DataManager()
+    static let shared = DataManager()!
     
-    private init() {}
+    private init?() {}
     
     let rubble = Valute(charCode: "RUB", nominal: 1, name: "Российский рубль", value: 1, previous: 1, id: "01")
     

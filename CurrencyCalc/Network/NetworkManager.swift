@@ -9,7 +9,11 @@ import Foundation
 
 class NetworkManager {
     
-    static func fetchValute(completion: @escaping (_ valutesJSON: [Valute]) -> Void) {
+    static let shared = NetworkManager()!
+    
+    private init?() {}
+    
+    func fetchValute(completion: @escaping (_ valutesJSON: [Valute]) -> Void) {
         let urlString = AppConstant.url.rawValue
             guard let url = URL(string: urlString) else {return}
             let session = URLSession.shared
@@ -26,7 +30,7 @@ class NetworkManager {
             task.resume()
         }
         
-    static func parseJSON(withData data: Data) -> [Valute]? {
+   private func parseJSON(withData data: Data) -> [Valute]? {
             var valutes = [Valute]()
             let decoder = JSONDecoder()
             
