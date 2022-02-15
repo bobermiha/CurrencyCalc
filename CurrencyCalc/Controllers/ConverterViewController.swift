@@ -248,6 +248,10 @@ class ConverterViewController: UIViewController {
         navigationController?.pushViewController(valutesTableViewController, animated: true)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
 }
 
 // MARK: - The delegate method witch catch data and make data flow

@@ -21,6 +21,7 @@ class ValutesTableViewController: UITableViewController {
         super.viewDidLoad()
         setUpTableView()
         fetchData()
+        setUpSearchBar()
     }
     
     private func fetchData() {
@@ -41,6 +42,15 @@ class ValutesTableViewController: UITableViewController {
         tableView.register(ValuteTableViewCell.self, forCellReuseIdentifier: ValuteTableViewCell.cellID)
         tableView.separatorInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         title = "Выберите валюту"
+    }
+    
+    private func setUpSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Найти валюту"
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.searchController = searchController
     }
      
     // MARK: - Table view data source
@@ -78,4 +88,10 @@ class ValutesTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
+}
+
+// MARK: - SearchBar Delegate
+
+extension ValutesTableViewController: UISearchBarDelegate  {
+    
 }
