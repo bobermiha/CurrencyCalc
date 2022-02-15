@@ -43,7 +43,8 @@ class ConverterView: UIView {
         let button = UIButton()
         button.setTitle("⇄", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 35)
-        button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
         button.layer.cornerRadius = frameSize / 2
         button.backgroundColor = mainColor
         return button
@@ -91,7 +92,8 @@ class ConverterView: UIView {
     
     private func configurateChooseButtons(config button: UIButton) -> UIButton {
         button.backgroundColor = mainColor
-        button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
         button.setTitle("Выберите валюту", for: .normal)
         button.layer.cornerRadius = 15
         return button

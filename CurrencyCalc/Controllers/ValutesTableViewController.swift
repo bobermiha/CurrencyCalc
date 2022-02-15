@@ -86,6 +86,7 @@ class ValutesTableViewController: UITableViewController {
         choosenValute = valute
         delegate?.selectValuteType(didSelect: valute)
         tableView.reloadData()
+        navigationController?.popViewController(animated: true)
     }
 
 }

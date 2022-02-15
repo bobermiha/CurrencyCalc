@@ -24,10 +24,7 @@ class ConverterViewController: UIViewController {
     var firstValute: Valute?
     var secondValute: Valute?
     private var condition: ChangeValuteButtonCondition = .none
-    
-    // MARK: UI Elements
-    private let frameSize:CGFloat = 45.0
-    private var converterView = ConverterView()
+    private lazy var converterView = ConverterView()
 
     
     override func loadView() {
