@@ -22,6 +22,7 @@
 		F56B5B1527B289A200ACD674 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B5B1427B289A200ACD674 /* AppConstant.swift */; };
 		F56B5B1727B2941900ACD674 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B5B1627B2941900ACD674 /* MainTabBarController.swift */; };
 		F5817F9C27BBB308006D74E0 /* UIColor extensinon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5817F9B27BBB308006D74E0 /* UIColor extensinon.swift */; };
+		F5817FA027BBCF24006D74E0 /* ValuteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5817F9F27BBCF24006D74E0 /* ValuteTableViewCell.swift */; };
 		F58892C327A841F9009A71E1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58892C227A841F9009A71E1 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		F56B5B1427B289A200ACD674 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		F56B5B1627B2941900ACD674 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F5817F9B27BBB308006D74E0 /* UIColor extensinon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor extensinon.swift"; sourceTree = "<group>"; };
+		F5817F9F27BBCF24006D74E0 /* ValuteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteTableViewCell.swift; sourceTree = "<group>"; };
 		F58892C227A841F9009A71E1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 			children = (
 				F51B998227A5ADDF0008F18A /* LaunchScreen.storyboard */,
 				F51B999927A5BB610008F18A /* CourseTableViewCell.swift */,
+				F5817F9F27BBCF24006D74E0 /* ValuteTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				F51B99A027A5C5320008F18A /* NetworkManager.swift in Sources */,
 				F58892C327A841F9009A71E1 /* DataManager.swift in Sources */,
+				F5817FA027BBCF24006D74E0 /* ValuteTableViewCell.swift in Sources */,
 				F56B5B1727B2941900ACD674 /* MainTabBarController.swift in Sources */,
 				F5817F9C27BBB308006D74E0 /* UIColor extensinon.swift in Sources */,
 				F51B999E27A5C4E70008F18A /* Valute.swift in Sources */,
@@ -442,7 +446,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +476,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -46,16 +46,25 @@ class ConverterViewController: UIViewController {
     
     private lazy var chooseFirstValuteButton: UIButton = {
         let button = UIButton()
+        button.tag = 0
         return configurateChooseButtons(config: button)
     }()
     
     private lazy var chooseSecondValuteButton: UIButton = {
         let button = UIButton()
+        button.tag = 1
         return configurateChooseButtons(config: button)
     }()
     
     private lazy var switchValutes: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(named: "exchange-2"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFill
+        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.tintColor = .white
+        button.layer.cornerRadius = 15
+        button.backgroundColor = UIColor.mainColor
+        button.addTarget(self, action: #selector(swichButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -83,6 +92,8 @@ class ConverterViewController: UIViewController {
         super.viewDidLayoutSubviews()
         firstValuteFlagImage.layer.cornerRadius = frameSize / 2.0
         secondValuteFlagImage.layer.cornerRadius = frameSize / 2.0
+        switchValutes.layer.cornerRadius = frameSize / 2.0
+        
     }
     
     override func viewDidLoad() {
@@ -97,9 +108,19 @@ class ConverterViewController: UIViewController {
         setUpValuteLabel(label: secondValuteLabel, flagImageView: secondValuteFlagImage)
         setUpChooseButton(button: chooseFirstValuteButton, textField: firstValuteTF, flagImageView: firstValuteFlagImage)
         setUpChooseButton(button: chooseSecondValuteButton, textField: secondValuteTF, flagImageView: secondValuteFlagImage)
+        setUpSwitchValutesButton()
     }
     
     // MARK: UI Configuration methods
+    
+    private func updateUI() {
+        if let firstValute = firstValute {
+            firstValuteLabel.text = firstValute.charCode
+        }
+        if let secondValute = secondValute {
+            secondValuteLabel.text = secondValute.charCode
+        }
+    }
     
     private func configurateTextField(config textField: UITextField) -> UITextField {
         textField.borderStyle = .none
@@ -117,6 +138,7 @@ class ConverterViewController: UIViewController {
         button.tintColor = .white
         button.setTitle("Выберите валюту", for: .normal)
         button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(chooseValute), for: .touchUpInside)
         return button
     }
     
@@ -175,7 +197,7 @@ class ConverterViewController: UIViewController {
             make.top.equalTo(flagImageView)
             make.left.equalTo(flagImageView.snp.right).inset(-25)
             make.height.equalTo(frameSize)
-            make.width.equalTo(70)
+            make.width.equalTo(75)
         }
     }
     
@@ -189,6 +211,48 @@ class ConverterViewController: UIViewController {
         }
     }
     
+    private func setUpSwitchValutesButton(){
+        view.addSubview(switchValutes)
+        switchValutes.snp.makeConstraints { make in
+            make.height.equalTo(frameSize)
+            make.width.equalTo(frameSize)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(chooseFirstValuteButton.snp.bottom).inset(-15)
+        }
+    }
+    
     // MARK: - Button actions
     
+    @objc private func swichButtonTapped() {
+        swap(&firstValute, &secondValute)
+        updateUI()
+    }
+    
+    @objc private func chooseValute(sender: UIButton) {
+        let valutesTableViewController = ValutesTableViewController()
+        valutesTableViewController.delegate = self
+        
+        if sender.tag == 0 {
+            condition = .fristValute
+            print(1)
+            valutesTableViewController.choosenValute = firstValute
+        } else {
+            condition = .secondValute
+            print(2)
+            valutesTableViewController.choosenValute = secondValute
+        }
+        navigationController?.pushViewController(valutesTableViewController, animated: true)
+    }
+    
+}
+
+extension ConverterViewController: SelectValuteTypeDelegate {
+    func selectValuteType(didSelect valuteType: Valute) {
+        if condition == .fristValute {
+            self.firstValute = valuteType
+        } else {
+            self.secondValute = valuteType
+        }
+        updateUI()
+    }
 }

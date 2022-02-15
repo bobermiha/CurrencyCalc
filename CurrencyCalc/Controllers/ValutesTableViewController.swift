@@ -7,83 +7,75 @@
 
 import UIKit
 
+protocol SelectValuteTypeDelegate: AnyObject {
+    func selectValuteType(didSelect valuteType: Valute)
+}
+
 class ValutesTableViewController: UITableViewController {
+    
+    weak var delegate: SelectValuteTypeDelegate?
+    private var valutes = [Valute]()
+    var choosenValute: Valute?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setUpTableView()
+        fetchData()
     }
-
+    
+    private func fetchData() {
+        NetworkManager.shared.fetchValute { valutesJSON in
+            var undsortedValutes = [Valute]()
+            undsortedValutes.append(DataManager.shared.rubble)
+            for valute in valutesJSON {
+                undsortedValutes.append(valute)
+            }
+            DispatchQueue.main.async {
+                self.valutes = undsortedValutes.sorted { $0.name! < $1.name! }
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    private func setUpTableView() {
+        tableView.register(ValuteTableViewCell.self, forCellReuseIdentifier: ValuteTableViewCell.cellID)
+        tableView.separatorInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        title = "Выберите валюту"
+    }
+     
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if valutes.isEmpty {
+            return 0
+        }else {
+            return valutes.count
+        }
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: ValuteTableViewCell.cellID, for: indexPath) as! ValuteTableViewCell
+        let valute = valutes[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        content.text = valute.name
+        cell.contentConfiguration = content
+        
+        if valute == choosenValute {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let valute = valutes[indexPath.row]
+        choosenValute = valute
+        delegate?.selectValuteType(didSelect: valute)
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
