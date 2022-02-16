@@ -16,7 +16,8 @@ struct Valute: Codable, Equatable {
     let id: String?
     
     var isIncreased: Bool {
-        return previous! > value!
+        guard let previous = previous, let value = value else { return false }
+        return previous > value
     }
     // Since the data comes with different denominations, it is necessary to bring them to a value of 1 ruble
     var actualValue: Double {
