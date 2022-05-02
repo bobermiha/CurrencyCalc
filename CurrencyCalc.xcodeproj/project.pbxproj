@@ -16,9 +16,15 @@
 		F51B999627A5B03C0008F18A /* ValutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999527A5B03C0008F18A /* ValutesTableViewController.swift */; };
 		F51B999827A5B0480008F18A /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999727A5B0480008F18A /* CoursesTableViewController.swift */; };
 		F51B999A27A5BB610008F18A /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999927A5BB610008F18A /* CourseTableViewCell.swift */; };
-		F51B999C27A5C4BB0008F18A /* ValuteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999B27A5C4BB0008F18A /* ValuteData.swift */; };
+		F51B999C27A5C4BB0008F18A /* ValuteDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999B27A5C4BB0008F18A /* ValuteDto.swift */; };
 		F51B999E27A5C4E70008F18A /* Valute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999D27A5C4E70008F18A /* Valute.swift */; };
 		F51B99A027A5C5320008F18A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B999F27A5C5320008F18A /* NetworkManager.swift */; };
+		F55C319A2820370400D2CD86 /* CoursesApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C31992820370400D2CD86 /* CoursesApiController.swift */; };
+		F55C319E2820398200D2CD86 /* CoursesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C319D2820398200D2CD86 /* CoursesProtocols.swift */; };
+		F55C31A02820399000D2CD86 /* CoursesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C319F2820399000D2CD86 /* CoursesInteractor.swift */; };
+		F55C31A22820399D00D2CD86 /* CoursesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C31A12820399D00D2CD86 /* CoursesPresenter.swift */; };
+		F55C31A428203CFF00D2CD86 /* ValutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C31A328203CFF00D2CD86 /* ValutesTableViewController.swift */; };
+		F55C31A628203DC500D2CD86 /* ValuteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C31A528203DC500D2CD86 /* ValuteViewModel.swift */; };
 		F56B5B1527B289A200ACD674 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B5B1427B289A200ACD674 /* AppConstant.swift */; };
 		F56B5B1727B2941900ACD674 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B5B1627B2941900ACD674 /* MainTabBarController.swift */; };
 		F5817FA027BBCF24006D74E0 /* ValuteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5817F9F27BBCF24006D74E0 /* ValuteTableViewCell.swift */; };
@@ -40,9 +46,15 @@
 		F51B999527A5B03C0008F18A /* ValutesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValutesTableViewController.swift; sourceTree = "<group>"; };
 		F51B999727A5B0480008F18A /* CoursesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
 		F51B999927A5BB610008F18A /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
-		F51B999B27A5C4BB0008F18A /* ValuteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteData.swift; sourceTree = "<group>"; };
+		F51B999B27A5C4BB0008F18A /* ValuteDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteDto.swift; sourceTree = "<group>"; };
 		F51B999D27A5C4E70008F18A /* Valute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valute.swift; sourceTree = "<group>"; };
 		F51B999F27A5C5320008F18A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F55C31992820370400D2CD86 /* CoursesApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesApiController.swift; sourceTree = "<group>"; };
+		F55C319D2820398200D2CD86 /* CoursesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesProtocols.swift; sourceTree = "<group>"; };
+		F55C319F2820399000D2CD86 /* CoursesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesInteractor.swift; sourceTree = "<group>"; };
+		F55C31A12820399D00D2CD86 /* CoursesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesPresenter.swift; sourceTree = "<group>"; };
+		F55C31A328203CFF00D2CD86 /* ValutesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValutesTableViewController.swift; sourceTree = "<group>"; };
+		F55C31A528203DC500D2CD86 /* ValuteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteViewModel.swift; sourceTree = "<group>"; };
 		F56B5B1427B289A200ACD674 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		F56B5B1627B2941900ACD674 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F5817F9F27BBCF24006D74E0 /* ValuteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +110,7 @@
 				F51B999427A5AF5F0008F18A /* View */,
 				F51B998F27A5AF160008F18A /* Controllers */,
 				F51B999327A5AF420008F18A /* Supporting Files */,
+				F55C319C2820392A00D2CD86 /* CoursesModule */,
 			);
 			path = CurrencyCalc;
 			sourceTree = "<group>";
@@ -105,9 +118,9 @@
 		F51B998F27A5AF160008F18A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F51B999727A5B0480008F18A /* CoursesTableViewController.swift */,
 				F51B998B27A5AEEE0008F18A /* ConverterViewController.swift */,
 				F51B999527A5B03C0008F18A /* ValutesTableViewController.swift */,
-				F51B999727A5B0480008F18A /* CoursesTableViewController.swift */,
 				F56B5B1627B2941900ACD674 /* MainTabBarController.swift */,
 			);
 			path = Controllers;
@@ -116,8 +129,9 @@
 		F51B999127A5AF290008F18A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F51B999B27A5C4BB0008F18A /* ValuteData.swift */,
+				F51B999B27A5C4BB0008F18A /* ValuteDto.swift */,
 				F51B999D27A5C4E70008F18A /* Valute.swift */,
+				F55C31A528203DC500D2CD86 /* ValuteViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +164,18 @@
 				F5817F9F27BBCF24006D74E0 /* ValuteTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F55C319C2820392A00D2CD86 /* CoursesModule */ = {
+			isa = PBXGroup;
+			children = (
+				F55C31992820370400D2CD86 /* CoursesApiController.swift */,
+				F55C319D2820398200D2CD86 /* CoursesProtocols.swift */,
+				F55C319F2820399000D2CD86 /* CoursesInteractor.swift */,
+				F55C31A12820399D00D2CD86 /* CoursesPresenter.swift */,
+				F55C31A328203CFF00D2CD86 /* ValutesTableViewController.swift */,
+			);
+			path = CoursesModule;
 			sourceTree = "<group>";
 		};
 		F56B5B1327B2898F00ACD674 /* Helpers */ = {
@@ -298,13 +324,19 @@
 				F51B999E27A5C4E70008F18A /* Valute.swift in Sources */,
 				F51B999627A5B03C0008F18A /* ValutesTableViewController.swift in Sources */,
 				F51B999827A5B0480008F18A /* CoursesTableViewController.swift in Sources */,
-				F51B999C27A5C4BB0008F18A /* ValuteData.swift in Sources */,
+				F51B999C27A5C4BB0008F18A /* ValuteDto.swift in Sources */,
 				F51B999A27A5BB610008F18A /* CourseTableViewCell.swift in Sources */,
+				F55C31A22820399D00D2CD86 /* CoursesPresenter.swift in Sources */,
+				F55C31A428203CFF00D2CD86 /* ValutesTableViewController.swift in Sources */,
 				F5817FA427BC2929006D74E0 /* ConverterView.swift in Sources */,
+				F55C319E2820398200D2CD86 /* CoursesProtocols.swift in Sources */,
+				F55C31A628203DC500D2CD86 /* ValuteViewModel.swift in Sources */,
+				F55C31A02820399000D2CD86 /* CoursesInteractor.swift in Sources */,
 				F51B997827A5ADDD0008F18A /* AppDelegate.swift in Sources */,
 				F51B997A27A5ADDD0008F18A /* SceneDelegate.swift in Sources */,
 				F56B5B1527B289A200ACD674 /* AppConstant.swift in Sources */,
 				F51B998C27A5AEEE0008F18A /* ConverterViewController.swift in Sources */,
+				F55C319A2820370400D2CD86 /* CoursesApiController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

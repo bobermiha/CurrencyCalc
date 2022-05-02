@@ -603,7 +603,7 @@ extension AlamofireExtension where ExtendedType == SecCertificate {
 
         guard let createdTrust = trust, trustCreationStatus == errSecSuccess else { return nil }
 
-        return SecTrustCopyPublicKey(createdTrust)
+        return SecTrustCopyKey(createdTrust)
     }
 }
 

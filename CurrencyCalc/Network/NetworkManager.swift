@@ -14,7 +14,7 @@ class NetworkManager {
     private init?() {}
     
     func fetchValute(completion: @escaping (_ valutesJSON: [Valute]) -> Void) {
-        let urlString = AppConstant.url.rawValue
+        let urlString = AppConstant.coursesUrl.rawValue
             guard let url = URL(string: urlString) else {return}
             let session = URLSession.shared
             let task = session.dataTask(with: url) { data, response, error in
@@ -35,7 +35,7 @@ class NetworkManager {
             let decoder = JSONDecoder()
             
             do{
-                let jsonData = try decoder.decode(ValuteData.self, from: data)
+                let jsonData = try decoder.decode(ValuteDto.self, from: data)
                 if let jsonItems = jsonData.valute {
                     for item in jsonItems {
                         let valute = item.value

@@ -16,7 +16,7 @@ class CoursesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-        fetchValute()
+//        fetchValute()
     }
     
     
@@ -25,24 +25,24 @@ class CoursesTableViewController: UITableViewController {
     private func setUpTableView() {
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .gray
-        tableView.separatorInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 16)
         view.backgroundColor = .white
         tableView.register(CourseTableViewCell.self as AnyClass, forCellReuseIdentifier: "Cell")
     }
     
-    private func fetchValute() { // network method
-        NetworkManager.shared.fetchValute { (data) in
-            var valutes = [Valute]()
-            for item in data {
-                valutes.append(item)
-            }
-            let sortedArray = valutes.sorted {$0.name! < $1.name!}
-            self.valutes = sortedArray
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+//    private func fetchValute() { // network method
+//        NetworkManager.shared.fetchValute { (data) in
+//            var valutes = [Valute]()
+//            for item in data {
+//                valutes.append(item)
+//            }
+//            let sortedArray = valutes.sorted {$0.name! < $1.name!}
+//            self.valutes = sortedArray
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
