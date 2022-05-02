@@ -24,203 +24,38 @@ class ConverterViewController: UIViewController {
     var firstValute: Valute?
     var secondValute: Valute?
     private var condition: ChangeValuteButtonCondition = .none
+    private lazy var converterView = ConverterView()
+
     
-    // MARK: UI Elements
-    private let frameSize:CGFloat = 45.0
-    
-    private lazy var backgroudImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "exchange")
-        return imageView
-    }()
-    
-    private lazy var firstValuteTF: UITextField = {
-        let textField = UITextField()
-        return configurateTextField(config: textField)
-    }()
-    
-    private lazy var secondValuteTF: UITextField = {
-        let textField = UITextField()
-        return configurateTextField(config: textField)
-    }()
-    
-    private lazy var chooseFirstValuteButton: UIButton = {
-        let button = UIButton()
-        button.tag = 0
-        return configurateChooseButtons(config: button)
-    }()
-    
-    private lazy var chooseSecondValuteButton: UIButton = {
-        let button = UIButton()
-        button.tag = 1
-        return configurateChooseButtons(config: button)
-    }()
-    
-    private lazy var switchValutes: UIButton = {
-        let button = UIButton()
-        button.setTitle("⇄", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 35)
-        button.tintColor = .white
-        button.layer.cornerRadius = 15
-        button.backgroundColor = mainColor
-        button.addTarget(self, action: #selector(swichButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var firstValuteFlagImage: UIImageView = {
-        let imageView = UIImageView()
-        return configurateFlagImageView(config: imageView)
-    }()
-    
-    private lazy var secondValuteFlagImage: UIImageView = {
-        let imageView = UIImageView()
-        return configurateFlagImageView(config: imageView)
-    }()
-    
-    private lazy var firstValuteLabel: UILabel = {
-        let label = UILabel()
-        return configurateLabel(config: label)
-    }()
-    
-    private lazy var secondValuteLabel: UILabel = {
-        let label = UILabel()
-        return configurateLabel(config: label)
-    }()
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        firstValuteFlagImage.layer.cornerRadius = frameSize / 2.0
-        secondValuteFlagImage.layer.cornerRadius = frameSize / 2.0
-        switchValutes.layer.cornerRadius = frameSize / 2.0
-        
+    override func loadView() {
+        self.view = converterView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setUpBackgroundImageView()
-        setUpTextField(textField: firstValuteTF, imageView: backgroudImageView, constraint: .leading)
-        setUpTextField(textField: secondValuteTF, imageView: backgroudImageView, constraint: .trailing)
-        setUpFlagImageView(flagImageView: firstValuteFlagImage, textField: firstValuteTF)
-        setUpFlagImageView(flagImageView: secondValuteFlagImage, textField: secondValuteTF)
-        setUpValuteLabel(label: firstValuteLabel, flagImageView: firstValuteFlagImage)
-        setUpValuteLabel(label: secondValuteLabel, flagImageView: secondValuteFlagImage)
-        setUpChooseButton(button: chooseFirstValuteButton, textField: firstValuteTF, flagImageView: firstValuteFlagImage)
-        setUpChooseButton(button: chooseSecondValuteButton, textField: secondValuteTF, flagImageView: secondValuteFlagImage)
-        setUpSwitchValutesButton()
+        configurateVew()
+        updateUI()
     }
     
     // MARK: UI Configuration methods
     
+    private func configurateVew() {
+        converterView.chooseFirstValuteButton.addTarget(self, action: #selector(chooseValute), for: .touchUpInside)
+        converterView.chooseSecondValuteButton.addTarget(self, action: #selector(chooseValute), for: .touchUpInside)
+        converterView.switchValutes.addTarget(self, action: #selector(swichButtonTapped), for: .touchUpInside)
+        converterView.firstValuteTF.delegate = self
+        converterView.secondValuteTF.delegate = self
+    }
+//
     private func updateUI() {
         if let firstValute = firstValute {
-            firstValuteLabel.text = firstValute.charCode
-            firstValuteFlagImage.image = UIImage(named: firstValute.charCode!)
+            converterView.firstValuteLabel.text = firstValute.charCode
+            converterView.firstValuteFlagImage.image = UIImage(named: firstValute.charCode!)
         }
         if let secondValute = secondValute {
-            secondValuteLabel.text = secondValute.charCode
-            secondValuteFlagImage.image = UIImage(named: secondValute.charCode!)
-        }
-    }
-    
-    private func configurateTextField(config textField: UITextField) -> UITextField {
-        textField.borderStyle = .none
-        textField.delegate = self
-        textField.keyboardType = .decimalPad
-        textField.layer.cornerRadius = 7.5
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = mainColor.cgColor
-        textField.placeholder = "Введите значение"
-        textField.font = UIFont(name: "Apple SD Ghotic Neo", size: 15)
-        textField.textAlignment = .center
-        return textField
-    }
-    
-    private func configurateChooseButtons(config button: UIButton) -> UIButton {
-        button.backgroundColor = mainColor
-        button.tintColor = .white
-        button.setTitle("Выберите валюту", for: .normal)
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(chooseValute), for: .touchUpInside)
-        return button
-    }
-    
-    private func configurateFlagImageView(config imageView: UIImageView) -> UIImageView {
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.borderWidth = 1.5
-        imageView.tintColor = .black
-        imageView.layer.borderColor = mainColor.cgColor
-        imageView.clipsToBounds = true
-        return imageView
-    }
-    
-    private func configurateLabel(config label:UILabel) -> UILabel {
-        label.text = "???"
-        label.textAlignment = .left
-        label.font = UIFont.boldSystemFont(ofSize: 35)
-        return label
-    }
-    
-    private func setUpBackgroundImageView() {
-        view.addSubview(backgroudImageView)
-        backgroudImageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.height.width.equalTo(150)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(35)
-        }
-    }
-    
-    private func setUpTextField(textField: UITextField, imageView: UIImageView, constraint: Contraints) {
-        view.addSubview(textField)
-        textField.snp.makeConstraints { make in
-            switch constraint {
-            case .trailing:
-                make.trailing.equalToSuperview().inset(20)
-            case .leading:
-                make.leading.equalToSuperview().inset(20)
-            }
-            make.top.equalTo(imageView.snp.bottom).inset(-80)
-            make.width.equalTo(160)
-            make.height.equalTo(40)
-        }
-    }
-    
-    private func setUpFlagImageView(flagImageView: UIImageView, textField: UITextField) {
-        view.addSubview(flagImageView)
-        flagImageView.snp.makeConstraints { make in
-            make.top.equalTo(textField.snp.bottom).inset(-20)
-            make.left.equalTo(textField.snp.left)
-            make.height.width.equalTo(frameSize)
-        }
-    }
-    
-    private func setUpValuteLabel(label: UILabel, flagImageView: UIImageView) {
-        view.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.top.equalTo(flagImageView)
-            make.left.equalTo(flagImageView.snp.right).inset(-25)
-            make.height.equalTo(frameSize)
-            make.width.equalTo(80)
-        }
-    }
-    
-    private func setUpChooseButton(button: UIButton, textField: UITextField, flagImageView: UIImageView){
-        view.addSubview(button)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(textField)
-            make.height.equalTo(frameSize)
-            make.top.equalTo(flagImageView.snp.bottom).inset(-20)
-            make.left.equalTo(textField)
-        }
-    }
-    
-    private func setUpSwitchValutesButton(){
-        view.addSubview(switchValutes)
-        switchValutes.snp.makeConstraints { make in
-            make.height.equalTo(frameSize)
-            make.width.equalTo(frameSize)
-            make.centerX.equalToSuperview()
-            make.top.equalTo(chooseFirstValuteButton.snp.bottom).inset(-15)
+            converterView.secondValuteLabel.text = secondValute.charCode
+            converterView.secondValuteFlagImage.image = UIImage(named: secondValute.charCode!)
         }
     }
     
@@ -228,7 +63,7 @@ class ConverterViewController: UIViewController {
     
     @objc private func swichButtonTapped() {
         swap(&firstValute, &secondValute)
-        swap(&firstValuteTF.text, &secondValuteTF.text)
+        swap(&converterView.firstValuteTF.text, &converterView.secondValuteTF.text)
         updateUI()
     }
     
@@ -275,12 +110,12 @@ extension ConverterViewController: UITextFieldDelegate {
         guard let text = textField.text,
                 let firstValute = firstValute,
                 let secondValute = secondValute else { return }
-        
-        if firstValuteTF == textField {
-            secondValuteTF.text = String(format: "%.2f", DataManager.shared.calculateValueFromFirstToSecond(text: text, from: firstValute, to: secondValute))
+
+        if converterView.firstValuteTF == textField {
+            converterView.secondValuteTF.text = String(format: "%.2f", DataManager.shared.calculateValueFromFirstToSecond(text: text, from: firstValute, to: secondValute))
         }
-        if secondValuteTF == textField {
-            firstValuteTF.text = String(format: "%.2f", DataManager.shared.calculateValueFromSecondToFirst(text: text, from: secondValute, to: firstValute))
+        if converterView.secondValuteTF == textField {
+            converterView.firstValuteTF.text = String(format: "%.2f", DataManager.shared.calculateValueFromSecondToFirst(text: text, from: secondValute, to: firstValute))
         }
     }
     

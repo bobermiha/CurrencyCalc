@@ -118,7 +118,6 @@
 			children = (
 				F51B999B27A5C4BB0008F18A /* ValuteData.swift */,
 				F51B999D27A5C4E70008F18A /* Valute.swift */,
-				F5817FA327BC2929006D74E0 /* ConverterView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +146,7 @@
 			children = (
 				F51B998227A5ADDF0008F18A /* LaunchScreen.storyboard */,
 				F51B999927A5BB610008F18A /* CourseTableViewCell.swift */,
+				F5817FA327BC2929006D74E0 /* ConverterView.swift */,
 				F5817F9F27BBCF24006D74E0 /* ValuteTableViewCell.swift */,
 			);
 			path = View;
