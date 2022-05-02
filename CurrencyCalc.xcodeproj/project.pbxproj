@@ -23,7 +23,6 @@
 		F55C319E2820398200D2CD86 /* CoursesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C319D2820398200D2CD86 /* CoursesProtocols.swift */; };
 		F55C31A02820399000D2CD86 /* CoursesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C319F2820399000D2CD86 /* CoursesInteractor.swift */; };
 		F55C31A22820399D00D2CD86 /* CoursesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C31A12820399D00D2CD86 /* CoursesPresenter.swift */; };
-		F55C31A428203CFF00D2CD86 /* ValutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C31A328203CFF00D2CD86 /* ValutesTableViewController.swift */; };
 		F55C31A628203DC500D2CD86 /* ValuteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55C31A528203DC500D2CD86 /* ValuteViewModel.swift */; };
 		F56B5B1527B289A200ACD674 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B5B1427B289A200ACD674 /* AppConstant.swift */; };
 		F56B5B1727B2941900ACD674 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B5B1627B2941900ACD674 /* MainTabBarController.swift */; };
@@ -53,7 +52,6 @@
 		F55C319D2820398200D2CD86 /* CoursesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesProtocols.swift; sourceTree = "<group>"; };
 		F55C319F2820399000D2CD86 /* CoursesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesInteractor.swift; sourceTree = "<group>"; };
 		F55C31A12820399D00D2CD86 /* CoursesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesPresenter.swift; sourceTree = "<group>"; };
-		F55C31A328203CFF00D2CD86 /* ValutesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValutesTableViewController.swift; sourceTree = "<group>"; };
 		F55C31A528203DC500D2CD86 /* ValuteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteViewModel.swift; sourceTree = "<group>"; };
 		F56B5B1427B289A200ACD674 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		F56B5B1627B2941900ACD674 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 				F55C319D2820398200D2CD86 /* CoursesProtocols.swift */,
 				F55C319F2820399000D2CD86 /* CoursesInteractor.swift */,
 				F55C31A12820399D00D2CD86 /* CoursesPresenter.swift */,
-				F55C31A328203CFF00D2CD86 /* ValutesTableViewController.swift */,
 			);
 			path = CoursesModule;
 			sourceTree = "<group>";
@@ -327,7 +324,6 @@
 				F51B999C27A5C4BB0008F18A /* ValuteDto.swift in Sources */,
 				F51B999A27A5BB610008F18A /* CourseTableViewCell.swift in Sources */,
 				F55C31A22820399D00D2CD86 /* CoursesPresenter.swift in Sources */,
-				F55C31A428203CFF00D2CD86 /* ValutesTableViewController.swift in Sources */,
 				F5817FA427BC2929006D74E0 /* ConverterView.swift in Sources */,
 				F55C319E2820398200D2CD86 /* CoursesProtocols.swift in Sources */,
 				F55C31A628203DC500D2CD86 /* ValuteViewModel.swift in Sources */,
